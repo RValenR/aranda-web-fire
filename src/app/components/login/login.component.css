@@ -1,17 +1,3 @@
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #121212;
-    color: #e0e0e0;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
 .all-container{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #121212;
@@ -55,7 +41,7 @@ label {
 input[type="email"],
 input[type="password"] {
     width: 100%;
-    padding: 0.75rem;
+    padding: 0.70rem 0rem;
     border-radius: 4px;
     border: 1px solid #333333;
     background-color: #2a2a2a;
@@ -88,4 +74,25 @@ button[type="submit"]:hover {
 
 button[type="submit"]:active {
     background-color: #cc7a00;
+}
+.register-content-button{
+    text-align: right;
+}
+
+.register-redirect {
+    background: none;
+    border: none;
+    color: #ffffff; /* Color similar al de un enlace */
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 0;
+    font: inherit;
+    text-align: left;
+    font-size: small;
+    align-content: left;
+    margin-top: 10px;
+}
+
+.register-redirect:hover {
+    color: #0056b3;
 }

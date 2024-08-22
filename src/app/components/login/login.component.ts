@@ -35,4 +35,9 @@ export class LoginComponent {
       })
     }
   }
+
+  redirectToRegister(){
+    console.log('redirect')
+    this.router.navigate(['/register'])
+  }
 }
