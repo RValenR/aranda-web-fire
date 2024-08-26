@@ -21,18 +21,21 @@ export class RegisterComponent {
     passwordConfirm: new FormControl('', [Validators.required])
   });
 
-  async submit(){
+  async submit() {
     console.log(this.registerForm.value, this.registerForm.valid);
-    if(this.registerForm.valid){
-      this.firebaseService.signIn(this.registerForm.value)
-      .then(resp=>{
-        console.log(resp);
-        this.router.navigate(['/main']);
-      })
+    if (this.registerForm.valid &&
+      (this.registerForm.value.password === this.registerForm.value.passwordConfirm)) {
+      this.firebaseService.signUp(this.registerForm.value)
+        .then(resp => {
+          console.log(resp);
+          this.router.navigate(['/main']);
+        })
+    }else{
+      console.log('Los datos no son validos')
     }
   }
 
-  redirectToLogin(){
+  redirectToLogin() {
     console.log('redirect')
     this.router.navigate(['/login'])
   }

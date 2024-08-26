@@ -1,0 +1,25 @@
+<!-- <p-button (onClick)="showDialog()" label="Show" /> -->
+<p-dialog [modal]="true" [(visible)]="visible">
+    <app-register-plants-form> </app-register-plants-form>
+</p-dialog>
+
+
+
+<div class="bodyContainer">
+    <button (click)="logout()"> logOut</button>
+    <button (click)="addPlant()"> A;adir nuevo</button> 
+
+    <ul>
+        <li *ngFor="let item of dataService.items | async">
+            {{item.data1}}
+        </li>
+    </ul>
+    
+    <div class="images">
+        <div *ngFor="let image of dataService.allImages; let i = index">
+            <img [src]="image" alt="Image {{i + 1}}" width="200">
+            <p>Image URL: {{image}}</p>
+        </div>
+    </div>
+    
+</div>

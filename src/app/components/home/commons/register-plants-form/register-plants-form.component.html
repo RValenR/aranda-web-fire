@@ -1,0 +1,24 @@
+<div class="all-container">
+    <div class="container">
+        <h2>Ingresar datos</h2>
+        <form [formGroup]="dataForm" (ngSubmit)="submit()">
+            <div class="form-group">
+                <label for="data1">Dato 1:</label>
+                <input type="text" formControlName="data1" id="data1" name="data1" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Descripción:</label>
+                <textarea formControlName="description" id="description" name="description" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="date">Fecha de Llegada:</label>
+                <input type="date" formControlName="arrivalDate" id="date" name="date" required>
+            </div>
+            <div class="form-group">
+                <label for="imageUpload">Subir Imagen:</label>
+                <input type="file" (change)="uploadImage($event)" id="imageUpload" name="imageUpload" required>
+            </div>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+</div>
