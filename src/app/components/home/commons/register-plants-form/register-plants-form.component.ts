@@ -2,15 +2,19 @@ import { Component, inject } from '@angular/core';
 import { MainService } from '../../../../services/main/main.service';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faCamera } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-register-plants-form',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, FormsModule],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule, FontAwesomeModule],
   templateUrl: './register-plants-form.component.html',
   styleUrl: './register-plants-form.component.css'
 })
 export class RegisterPlantsFormComponent {
+  faCamera = faCamera;
+  selectedImage: string | ArrayBuffer | null = null;
 
   dataService = inject(MainService);
   
@@ -36,7 +40,18 @@ export class RegisterPlantsFormComponent {
 
   uploadImage(event: any) {
     const file = event.target.files[0];
-    this.dataForm.patchValue({ image: file });
-    this.dataForm.get('image')?.updateValueAndValidity();
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            if (e.target?.result) {
+                this.selectedImage = e.target.result; // Solo asigna si no es undefined
+            }
+        };
+        reader.readAsDataURL(file);
+    }
+}
+  triggerFileInput(){
+    const fileInput = document.getElementById('add-new-photo') as HTMLInputElement;
+    fileInput.click();
   }
 }

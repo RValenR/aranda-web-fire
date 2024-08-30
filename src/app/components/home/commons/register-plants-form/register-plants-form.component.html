@@ -2,21 +2,27 @@
     <div class="container">
         <h2>Ingresar datos</h2>
         <form [formGroup]="dataForm" (ngSubmit)="submit()">
-            <div class="form-group">
-                <label for="data1">Dato 1:</label>
-                <input type="text" formControlName="data1" id="data1" name="data1" required>
-            </div>
-            <div class="form-group">
-                <label for="description">Descripción:</label>
-                <textarea formControlName="description" id="description" name="description" required></textarea>
-            </div>
-            <div class="form-group">
-                <label for="date">Fecha de Llegada:</label>
-                <input type="date" formControlName="arrivalDate" id="date" name="date" required>
-            </div>
-            <div class="form-group">
-                <label for="imageUpload">Subir Imagen:</label>
-                <input type="file" (change)="uploadImage($event)" id="imageUpload" name="imageUpload" required>
+            <div class="formContainer">
+                <div class="add-new-photo first" id="add-photo" (click)="triggerFileInput()">
+                    <span *ngIf="!selectedImage" class="camera-icon">
+                        <fa-icon [icon]="faCamera"></fa-icon>
+                    </span>
+                    <img *ngIf="selectedImage" [src]="selectedImage" alt="Preview" class="preview-image" width="100">
+                </div>
+                <input type="file" (change)="uploadImage($event)" id="add-new-photo" name="images[]" style="display: none;" required>
+    
+                <div class="form-group">
+                    <label for="data1">Dato 1:</label>
+                    <input type="text" formControlName="data1" id="data1" name="data1" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Descripción:</label>
+                    <textarea formControlName="description" id="description" name="description" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="date">Fecha de Llegada:</label>
+                    <input type="date" formControlName="arrivalDate" id="date" name="date" required>
+                </div>
             </div>
             <button type="submit">Enviar</button>
         </form>
