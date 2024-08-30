@@ -1,16 +1,25 @@
-<div class="all-container">
-    <div class="container">
-        <h2>Ingresar datos</h2>
-        <form [formGroup]="dataForm" (ngSubmit)="submit()">
-            <div class="formContainer">
-                <div class="add-new-photo first" id="add-photo" (click)="triggerFileInput()">
+<div class="mainContainer">
+
+    <div class="header">
+        <div class="header-title">Añadir nueva planta</div>
+        <button class="header-btn-close" (click)="closeModal()">
+            <i class="fa-times"><fa-icon [icon]="fatimes"></fa-icon></i>
+        </button>
+    </div>
+
+    <form [formGroup]="dataForm" (ngSubmit)="submit()">
+        <div class="formContainer">
+            <div class="photoContainer">
+                <div class="add-new-photo" id="add-photo" (click)="triggerFileInput()">
                     <span *ngIf="!selectedImage" class="camera-icon">
                         <fa-icon [icon]="faCamera"></fa-icon>
                     </span>
-                    <img *ngIf="selectedImage" [src]="selectedImage" alt="Preview" class="preview-image" width="100">
+                    <img *ngIf="selectedImage" [src]="selectedImage" alt="Preview" class="preview-image">
                 </div>
-                <input type="file" (change)="uploadImage($event)" id="add-new-photo" name="images[]" style="display: none;" required>
-    
+                <input type="file" (change)="uploadImage($event)" id="add-new-photo" name="images[]"
+                    style="display: none;" required>
+            </div>
+            <div class="formData">
                 <div class="form-group">
                     <label for="data1">Dato 1:</label>
                     <input type="text" formControlName="data1" id="data1" name="data1" required>
@@ -23,8 +32,18 @@
                     <label for="date">Fecha de Llegada:</label>
                     <input type="date" formControlName="arrivalDate" id="date" name="date" required>
                 </div>
+                <div class="actionButtonsClass">
+                    <button type="submit">Enviar</button>
+                    <p-button label="Sign-In" (onClick)="closeDialog()" />
+                    <p-button label="Cancel" (onClick)="closeDialog()" />
+                </div>
             </div>
-            <button type="submit">Enviar</button>
-        </form>
+            
+
+        </div>
+
+    </form>
+    <div>
+
     </div>
 </div>

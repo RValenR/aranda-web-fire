@@ -1,23 +1,30 @@
-import { Component, inject } from '@angular/core';
+import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { MainService } from '../../../../services/main/main.service';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faCamera } from '@fortawesome/free-solid-svg-icons';
+import { ButtonModule } from 'primeng/button';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-register-plants-form',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, FormsModule, FontAwesomeModule],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule, FontAwesomeModule, ButtonModule, FontAwesomeModule],
   templateUrl: './register-plants-form.component.html',
   styleUrl: './register-plants-form.component.css'
 })
 export class RegisterPlantsFormComponent {
+  @Output() onIsVisible: EventEmitter<any> = new EventEmitter();
   faCamera = faCamera;
+  fatimes = faTimes;
   selectedImage: string | ArrayBuffer | null = null;
 
+  visible: boolean = false;
+
   dataService = inject(MainService);
-  
+
   dataForm = new FormGroup({
     data1: new FormControl('', [Validators.required]),
     description: new FormControl('', [Validators.required]),
@@ -41,17 +48,27 @@ export class RegisterPlantsFormComponent {
   uploadImage(event: any) {
     const file = event.target.files[0];
     if (file) {
-        const reader = new FileReader();
-        reader.onload = (e) => {
-            if (e.target?.result) {
-                this.selectedImage = e.target.result; // Solo asigna si no es undefined
-            }
-        };
-        reader.readAsDataURL(file);
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        if (e.target?.result) {
+          this.selectedImage = e.target.result; // Solo asigna si no es undefined
+        }
+      };
+      reader.readAsDataURL(file);
     }
-}
-  triggerFileInput(){
+  }
+  triggerFileInput() {
     const fileInput = document.getElementById('add-new-photo') as HTMLInputElement;
     fileInput.click();
+  }
+
+  closeDialog(){
+    this.visible = false;
+    this.onIsVisible.emit({isVisible: this.visible});
+  }
+
+  closeModal(){
+    this.visible = false;
+    this.onIsVisible.emit({isVisible: this.visible}); 
   }
 }

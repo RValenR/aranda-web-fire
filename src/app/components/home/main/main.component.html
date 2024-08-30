@@ -24,9 +24,18 @@
         </div>
     </div>
     <div class="modal">
-        <p-dialog [modal]="true" [(visible)]="visible">
+        <!-- <p-dialog [modal]="true" [(visible)]="visible" >
             <app-register-plants-form> </app-register-plants-form>
-        </p-dialog>
+        </p-dialog> -->
+        <div class="card flex justify-content-center">
+            <!-- <p-button (onClick)="showDialog()" icon="pi pi-user" label="Login" /> -->
+            <p-dialog [modal]="true" [(visible)]="visible">
+                <ng-template pTemplate="headless">
+                    <app-register-plants-form (onIsVisible)="onIsVisible($event)"> </app-register-plants-form>
+                </ng-template>
+            </p-dialog>
+          </div>
+          
     </div>
  </div>
 
