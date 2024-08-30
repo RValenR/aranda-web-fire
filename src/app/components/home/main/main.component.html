@@ -1,11 +1,13 @@
 <!-- <p-button (onClick)="showDialog()" label="Show" /> -->
+<app-sidebar (onToggleSideNav)="onToggleSideNav($event)"></app-sidebar>
+
 <p-dialog [modal]="true" [(visible)]="visible">
     <app-register-plants-form> </app-register-plants-form>
 </p-dialog>
 
 
 
-<div class="bodyContainer">
+<div class="bodyContainer" [ngClass]="specialStyleClass">
     <button (click)="logout()"> logOut</button>
     <button (click)="addPlant()"> A;adir nuevo</button> 
 

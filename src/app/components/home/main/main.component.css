@@ -1,3 +1,26 @@
+.bodyContainer{
+    width: calc(100% - 5rem);
+    height: 100vh;
+    margin-left: 5rem;
+    z-index: 0;
+    position: relative;
+    top: 0;
+    transition: all .5s ease;
+    background: #f4f7fa;
+    padding: 3rem;
+}
+
+.body-trimmed-aux{
+    width: calc(100% - 16.5625rem);
+    margin-left: 16.5625rem;
+}
+
+.body-md-screen-aux{
+    width: calc(100% - 5rem);
+    margin-left: 5rem;
+
+}
+/* 
 .bodyContainer {
     background-color: #121212;
     color: #e0e0e0;
@@ -71,4 +94,4 @@ p {
     margin-top: 5px;
     font-size: 14px;
     color: #b0b0b0;
-}
+} */
