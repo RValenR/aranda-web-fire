@@ -1,12 +1,12 @@
 .sidenav{
-    background: #263238;
-    transition: all .5s ease;
+    background: #171627;
+    transition: all .3s ease;
     position: fixed;
     z-index: 1;
     top: 0;
     width: 5rem;
     height: 100vh;
-    box-shadow: 0.063rem 0 1.25rem 0 #8690a3;
+    box-shadow: 0.063rem 0 1.25rem 0 #137428;
 
     .logo-container{
         display: flex;
@@ -54,7 +54,7 @@
 }
 
 .sidenav-collapsed{
-    width: 16.5625rem;
+    width: 14.5625rem;
 }
 
 .sidenav-nav{
@@ -110,3 +110,7 @@
     color: #000;
    }
 }
+
+.signout-class {
+    margin-top: auto; /* Esto empuja el elemento hacia abajo */
+  }

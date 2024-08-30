@@ -1,27 +1,32 @@
 <!-- <p-button (onClick)="showDialog()" label="Show" /> -->
-<app-sidebar (onToggleSideNav)="onToggleSideNav($event)"></app-sidebar>
+ <div>
+    <div class="sidebar">
+        <app-sidebar (onToggleSideNav)="onToggleSideNav($event)" (actionSelected)="actionSelected($event)"></app-sidebar>
+    </div>
+    <div class="bodyContainer" [ngClass]="specialStyleClass">
 
-<p-dialog [modal]="true" [(visible)]="visible">
-    <app-register-plants-form> </app-register-plants-form>
-</p-dialog>
+        <div class="topbar">
+            search
+        </div>
 
-
-
-<div class="bodyContainer" [ngClass]="specialStyleClass">
-    <button (click)="logout()"> logOut</button>
-    <button (click)="addPlant()"> A;adir nuevo</button> 
-
-    <ul>
-        <li *ngFor="let item of dataService.items | async">
-            {{item.data1}}
-        </li>
-    </ul>
-    
-    <div class="images">
-        <div *ngFor="let image of dataService.allImages; let i = index">
-            <img [src]="image" alt="Image {{i + 1}}" width="200">
-            <p>Image URL: {{image}}</p>
+        <div class="mainContent">
+            <ul>
+                <li *ngFor="let item of dataService.items | async">
+                    {{item.data1}}
+                </li>
+            </ul>
+            <div class="images">
+                <div *ngFor="let image of dataService.allImages; let i = index">
+                    <img [src]="image" alt="Image {{i + 1}}" width="200">
+                    <p>Image URL: {{image}}</p>
+                </div>
+            </div>
         </div>
     </div>
-    
-</div>
+    <div class="modal">
+        <p-dialog [modal]="true" [(visible)]="visible">
+            <app-register-plants-form> </app-register-plants-form>
+        </p-dialog>
+    </div>
+ </div>
+

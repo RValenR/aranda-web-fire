@@ -59,6 +59,15 @@ export class MainComponent {
     this.dataService.uploadFile(file);
   }
 
+  actionSelected(data: any){
+    console.log(data);
+    if(data.action ==='addNew'){
+      this.visible = true;
+    }
+    if(data.action === 'logOut'){
+      this.logout()
+    }
+  }
 
   addPlant() {
     this.visible = true;
