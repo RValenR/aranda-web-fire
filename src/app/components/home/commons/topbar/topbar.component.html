@@ -1,0 +1,20 @@
+
+<div class="topbar">
+    
+    <div class="logout-button">
+        <button class=" logout-btn" (click)="addNewData()">
+            <i class="sidenav-link-icon"><fa-icon [icon]="faPlus" ></fa-icon></i>
+            <span class="sidenav-link-text">Agregar</span>
+        </button>
+    </div>
+
+    <div class="search">
+        <input type="text" name="Buscar" id="search">
+    </div>
+    <div class="logout-button">
+        <a class="sidenav-nav-link" routerLink="/login" (click)="logOut()">
+            <i class="sidenav-link-icon"><fa-icon [icon]="faSignOut" ></fa-icon></i>
+            <span class="sidenav-link-text">Salir</span>
+        </a>
+    </div>
+</div>

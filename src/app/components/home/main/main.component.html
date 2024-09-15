@@ -3,11 +3,12 @@
     <div class="sidebar">
         <app-sidebar (onToggleSideNav)="onToggleSideNav($event)" (actionSelected)="actionSelected($event)"></app-sidebar>
     </div>
+    <div class="topbar" [ngClass]="topbarStyle">
+        <app-topbar (actionSelected)="actionSelected($event)"></app-topbar>
+    </div>
     <div class="bodyContainer" [ngClass]="specialStyleClass">
 
-        <div class="topbar">
-            search
-        </div>
+       
 
         <div class="mainContent">
             <ul>

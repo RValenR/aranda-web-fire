@@ -20,6 +20,22 @@
     margin-left: 5rem;
 
 }
+
+.topbar{
+    width: calc(100% - 14.5625rem);
+    margin-left: 14.5625rem;
+    position: relative;
+    transition: all .3s ease;
+}
+.topbarExpanded{
+    width: calc(100% - 14.5625rem);
+    margin-left: 14.5625rem;
+}
+
+.topbarUnexpanded{
+    width: calc(100% - 5rem);
+    margin-left: 5rem;
+}
 /* 
 .bodyContainer {
     background-color: #121212;

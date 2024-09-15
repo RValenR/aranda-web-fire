@@ -9,6 +9,7 @@ import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
 import { RegisterPlantsFormComponent } from '../commons/register-plants-form/register-plants-form.component';
 import { SidebarComponent } from '../commons/sidebar/sidebar.component';
+import { TopbarComponent } from '../commons/topbar/topbar.component';
 
 interface SideNavToggle {
   screenWidth: number;
@@ -19,7 +20,7 @@ interface SideNavToggle {
   selector: 'app-main',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, FormsModule, ButtonModule, 
-    InputTextModule, DialogModule, RegisterPlantsFormComponent, SidebarComponent,],
+    InputTextModule, DialogModule, RegisterPlantsFormComponent, SidebarComponent, TopbarComponent],
   templateUrl: './main.component.html',
   styleUrl: './main.component.css'
 })
@@ -35,6 +36,7 @@ export class MainComponent {
   screenWidth = 0;
 
   public specialStyleClass = '';
+  public topbarStyle = '';
 
   ngOnInit() {
     this.dataService.getElements();
@@ -48,8 +50,10 @@ export class MainComponent {
 
     if (data.collapsed) {
       this.specialStyleClass = 'body-trimmed-aux';
+      this.topbarStyle = 'topbarExpanded';
     } else if (!data.collapsed) {
       this.specialStyleClass = 'body-md-screen-aux';
+      this.topbarStyle = 'topbarUnexpanded';
     }
     console.log(this.specialStyleClass);
   }

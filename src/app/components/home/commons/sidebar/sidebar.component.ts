@@ -4,7 +4,7 @@ import { ButtonModule } from 'primeng/button';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faHome, faTimes, faSignOut, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faTimes, faPlus, faCalendar } from '@fortawesome/free-solid-svg-icons';
 
 interface SideNavToggle {
   screenWidth: number;
@@ -33,18 +33,11 @@ export class SidebarComponent implements OnInit {
       action:''
     },
     {
-      routerLink: '/register',
-      icon: faPlus,
-      label: 'Añadir planta',
+      routerLink: '/calendar',
+      icon: faCalendar,
+      label: 'Calendario',
       class: '',
-      action:'addNew'
-    },
-    {
-      routerLink: '/login',
-      icon: faSignOut,
-      label: 'Salir',
-      class: 'signout-class',
-      action:'logOut'
+      action:''
     },
 
   ]
