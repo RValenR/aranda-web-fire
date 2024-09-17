@@ -10,6 +10,10 @@ import { InputTextModule } from 'primeng/inputtext';
 import { RegisterPlantsFormComponent } from '../commons/register-plants-form/register-plants-form.component';
 import { SidebarComponent } from '../commons/sidebar/sidebar.component';
 import { TopbarComponent } from '../commons/topbar/topbar.component';
+import { TableModule } from 'primeng/table';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faEye } from '@fortawesome/free-solid-svg-icons';
+
 
 interface SideNavToggle {
   screenWidth: number;
@@ -20,13 +24,25 @@ interface SideNavToggle {
   selector: 'app-main',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, FormsModule, ButtonModule, 
-    InputTextModule, DialogModule, RegisterPlantsFormComponent, SidebarComponent, TopbarComponent],
+    InputTextModule, DialogModule, RegisterPlantsFormComponent, SidebarComponent, TopbarComponent, TableModule, FontAwesomeModule],
   templateUrl: './main.component.html',
   styleUrl: './main.component.css'
 })
 export class MainComponent {
+  faEye = faEye;
   isModalOpen = false;
   visible: boolean = false;
+  products = [{
+    code:1,
+    state: 'crecimiento',
+    alimentation: '10-30-10',
+    edad: '1 mes',
+  }, {
+    code:2,
+    state: 'floracion',
+    alimentation: 'urea',
+    edad: '1 mes',
+  }]
 
   firebaseService = inject(AuthService);
   router = inject(Router);

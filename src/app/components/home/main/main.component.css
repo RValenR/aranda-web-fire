@@ -3,11 +3,54 @@
     height: 100%;
     margin-left: 14.5625rem;
     z-index: 0;
-    position: relative;
+    /* position: relative; */
     top: 0;
     transition: all .3s ease;
-    background: #f0e6e6;
-    padding: 3rem;
+    background-color: #0e0e16;
+    margin-top: 0px;
+    padding: 5rem 1rem 0 1rem;
+
+    .tableContainer{
+        width: 100%;
+        /* height: 100%; */
+        /* margin: 80px 20px 0 20px; */
+        /* margin-top: 80px; */
+        margin-right: 60px;
+        background: #171627;
+        padding: 25px;
+        border-radius: 20px;
+        border: 1px solid #383838;
+
+        .tableStyle{
+            background: #171627;
+            color: aliceblue;
+        }
+
+        .more-button {
+            display: flex;
+            /* justify-content: flex-end; Alinea el contenido al extremo derecho */
+            gap: 10px; /* Añade espacio entre el botón y el enlace */
+    
+            .more-btn {
+                background-color: #02940a; /* Color de fondo del botón */
+                color: white;
+                border: none;
+                padding: 5px 10px;
+                border-radius: 5px;
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                font-size: 15px;
+            }
+    
+            .more-btn i {
+                margin-right: 10px; /* Espacio entre el icono y el texto */
+            }
+        }
+
+    }
+
+
 }
 
 .body-trimmed-aux{
@@ -24,8 +67,9 @@
 .topbar{
     width: calc(100% - 14.5625rem);
     margin-left: 14.5625rem;
-    position: relative;
+    position: fixed;
     transition: all .3s ease;
+    z-index: 1;
 }
 .topbarExpanded{
     width: calc(100% - 14.5625rem);
@@ -36,6 +80,8 @@
     width: calc(100% - 5rem);
     margin-left: 5rem;
 }
+
+
 /* 
 .bodyContainer {
     background-color: #121212;
