@@ -16,26 +16,30 @@
                     </span>
                     <img *ngIf="selectedImage" [src]="selectedImage" alt="Preview" class="preview-image">
                 </div>
-                <input type="file" (change)="uploadImage($event)" id="add-new-photo" name="images[]"
+                <input type="file" (change)="previewImage($event)" id="add-new-photo" name="images[]"
                     style="display: none;" required>
             </div>
             <div class="formData">
                 <div class="form-group">
-                    <label for="data1">Dato 1:</label>
-                    <input type="text" formControlName="data1" id="data1" name="data1" required>
+                    <label for="code">Código:</label>
+                    <input type="text" formControlName="code" id="data1" name="data1" required>
                 </div>
                 <div class="form-group">
-                    <label for="description">Descripción:</label>
-                    <textarea formControlName="description" id="description" name="description" required></textarea>
+                    <label for="state">Estado:</label>
+                    <input type="text" formControlName="state" id="state" name="state" required>
                 </div>
                 <div class="form-group">
-                    <label for="date">Fecha de Llegada:</label>
-                    <input type="date" formControlName="arrivalDate" id="date" name="date" required>
+                    <label for="food">Alimentación:</label>
+                    <input type="text" formControlName="food" id="food" name="food" required>
+                </div>
+                <div class="form-group">
+                    <label for="arrivalDate">Fecha de lleagda:</label>
+                    <input type="date" formControlName="arrivalDate" id="arrivalDate" name="arrivalDate" required>
                 </div>
                 <div class="actionButtonsClass">
                     <button type="submit">Enviar</button>
-                    <p-button label="Sign-In" (onClick)="closeDialog()" />
-                    <p-button label="Cancel" (onClick)="closeDialog()" />
+                    <p-button label="Guardar" (onClick)="closeDialog()" />
+                    <p-button label="Cancelar" (onClick)="closeDialog()" />
                 </div>
             </div>
             

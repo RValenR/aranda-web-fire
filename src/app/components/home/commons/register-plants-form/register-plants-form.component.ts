@@ -20,22 +20,25 @@ export class RegisterPlantsFormComponent {
   faCamera = faCamera;
   fatimes = faTimes;
   selectedImage: string | ArrayBuffer | null = null;
+  uploadFile:any;
 
   visible: boolean = false;
 
   dataService = inject(MainService);
 
   dataForm = new FormGroup({
-    data1: new FormControl('', [Validators.required]),
-    description: new FormControl('', [Validators.required]),
-    arrivalDate: new FormControl('', [Validators.required]),
-    image: new FormControl('', [Validators.required])
+    code: new FormControl('', [Validators.required]),
+    state: new FormControl('', [Validators.required]),
+    food: new FormControl('', [Validators.required]),
+    arrivalDate: new FormControl('', [Validators.required])
   });
 
   async submit() {
     // console.log(this.dataForm.value);
-    const response = await this.dataService.addElement(this.dataForm.value);
-    console.log(response);
+    const urlImage = this.dataService.uploadAllData(this.uploadFile, this.dataForm.value);
+    // console.log(urlImage);
+    // const response = await this.dataService.addElement(this.dataForm.value);
+    // console.log(response);
 
     // Add a new document in collection "cities"
     // await setDoc(doc(this.db, "cities", "LA"), {
@@ -45,16 +48,16 @@ export class RegisterPlantsFormComponent {
     // });
   }
 
-  uploadImage(event: any) {
-    const file = event.target.files[0];
-    if (file) {
+  previewImage(event: any) {
+    this.uploadFile = event.target.files[0];
+    if (this.uploadFile) {
       const reader = new FileReader();
       reader.onload = (e) => {
         if (e.target?.result) {
           this.selectedImage = e.target.result; // Solo asigna si no es undefined
         }
       };
-      reader.readAsDataURL(file);
+      reader.readAsDataURL(this.uploadFile);
     }
   }
   triggerFileInput() {

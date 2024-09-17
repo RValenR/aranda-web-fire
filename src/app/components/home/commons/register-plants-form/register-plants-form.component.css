@@ -1,10 +1,10 @@
 .mainContainer {
-    width: 30.5rem;
+    width: 25.5rem;
     height: 60vh;
     /* padding: 1.5rem; */
-    background: #7cce90;
+    background: #171627;
     border-radius: 5%;
-    box-shadow: 0.063rem 0 1.25rem 0 #137428;
+    box-shadow: 0.063rem 0 0.525rem 0 #383838;
     overflow: hidden;
 
     .header {
@@ -44,7 +44,7 @@
         align-items: center;
         width: 100%;
         padding: 0.938rem 0.938rem 0 0.938rem;
-        text-align: center;
+        /* text-align: center; */
 
         .photoContainer {
             margin: 10px;
@@ -53,7 +53,7 @@
                 cursor: pointer;
                 justify-content: center;
                 width: 150px;
-                height: 45vh;
+                height: 266px;
                 background-color: #fff;
                 border-radius: 10%;
                 margin: .5rem;
@@ -81,6 +81,7 @@
             width: 150px;
             height: 45vh;
             margin: 10px;
+            color: white;
         }
 
 

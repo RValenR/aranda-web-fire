@@ -23,7 +23,7 @@ export class MainService {
   ) { }
 
   addElement(element: any){
-    const elementRef = collection(this.firestore, 'places')
+    const elementRef = collection(this.firestore, 'plants')
     return addDoc(elementRef, element)
   }
 
@@ -39,7 +39,35 @@ export class MainService {
   uploadFile(file: File){
     const imaRef = ref(this.storage, `imagenes/${file.name}`)
     uploadBytes(imaRef, file)
-    .then(response => console.log(response))
+    .then(response =>{
+      console.log(response);
+      return getDownloadURL(imaRef)
+    })
+    .then(downloadURL =>{
+      console.log('File available at', downloadURL);
+    })
+    .catch(error => console.log(error))
+  }
+
+  uploadAllData(file: File, dataForm: any){
+    const imaRef = ref(this.storage, `imagenes/${file.name}`)
+    uploadBytes(imaRef, file)
+    .then(response =>{
+      console.log(response);
+      return getDownloadURL(imaRef)
+    })
+    .then(downloadURL =>{
+      console.log('File available at', downloadURL);
+      const allData = {
+        code: dataForm.code,
+        state: dataForm.state,
+        food: dataForm.food,
+        arrivalDate: dataForm.arrivalDate,
+        url: downloadURL
+      }
+
+      this.addElement(allData);
+    })
     .catch(error => console.log(error))
   }
 
