@@ -19,3 +19,7 @@ transition: all .3s ease;
 .full-screen{
     width: 100%;
 }
+
+.topbar{
+    transition: all .3s ease;
+}

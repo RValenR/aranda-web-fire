@@ -12,6 +12,6 @@ export class CalendarComponent implements OnInit {
   firebaseService = inject(AuthService);
   ngOnInit(): void {
     this.firebaseService.showInfo = true;
-    this.firebaseService.pageStyle = 'body-trimmed-aux'
+    // this.firebaseService.pageStyle = 'body-trimmed-aux'
   }
 }

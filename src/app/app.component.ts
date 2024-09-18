@@ -3,8 +3,8 @@ import { Component, inject, OnInit } from '@angular/core';
 import { collection, collectionData, Firestore } from '@angular/fire/firestore';
 import { Router, RouterOutlet } from '@angular/router';
 import { Observable } from 'rxjs';
-import { TopbarComponent } from './components/home/commons/topbar/topbar.component';
-import { SidebarComponent } from './components/home/commons/sidebar/sidebar.component';
+import { TopbarComponent } from './components/commons/topbar/topbar.component';
+import { SidebarComponent } from './components/commons/sidebar/sidebar.component';
 import { AuthService } from './services/auth/auth.service';
 
 interface SideNavToggle {
@@ -33,6 +33,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.showComponents = this.firebaseService.showInfo;
+    this.firebaseService.pageStyle = 'body-trimmed-aux'
     console.log('SHOW',this.showComponents)
   }
   

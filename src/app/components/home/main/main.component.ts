@@ -7,9 +7,9 @@ import { MainService } from '../../../services/main/main.service';
 import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
-import { RegisterPlantsFormComponent } from '../commons/register-plants-form/register-plants-form.component';
-import { SidebarComponent } from '../commons/sidebar/sidebar.component';
-import { TopbarComponent } from '../commons/topbar/topbar.component';
+import { RegisterPlantsFormComponent } from '../../commons/register-plants-form/register-plants-form.component';
+import { SidebarComponent } from '../../commons/sidebar/sidebar.component';
+import { TopbarComponent } from '../../commons/topbar/topbar.component';
 import { TableModule } from 'primeng/table';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
@@ -48,7 +48,7 @@ export class MainComponent {
   ngOnInit() {
     this.fetchItems();
     this.firebaseService.showInfo = true;
-    this.firebaseService.pageStyle = 'body-trimmed-aux'
+    // this.firebaseService.pageStyle = 'body-trimmed-aux'
     // this.dataService.getElements()
     // this.products = this.dataService.jsonItems
     // console.log('ALLL ITEMS',this.dataService.jsonItems);
@@ -76,13 +76,13 @@ export class MainComponent {
 
 
     if (data.collapsed) {
-      this.specialStyleClass = 'body-trimmed-aux';
+      this.firebaseService.pageStyle = 'body-trimmed-aux';
       this.topbarStyle = 'topbarExpanded';
     } else if (!data.collapsed) {
-      this.specialStyleClass = 'body-md-screen-aux';
+      this.firebaseService.pageStyle = 'body-md-screen-aux';
       this.topbarStyle = 'topbarUnexpanded';
     }
-    console.log(this.specialStyleClass);
+    // console.log(this.specialStyleClass);
   }
 
   uploadImage(event: any) {

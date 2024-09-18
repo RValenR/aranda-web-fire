@@ -1,0 +1,84 @@
+.topbar {
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    /* Espaciado lateral opcional */
+    background-color: #0e0e16;
+    /* Color de fondo oscuro para una apariencia moderna */
+    height: 60px;
+    /* Altura opcional de la barra */
+    z-index: 1;
+    border-bottom: 1px solid #383838;
+    justify-content: end;
+
+    .add-button {
+        display: flex;
+        justify-content: flex-end;
+        /* Alinea el contenido al extremo derecho */
+        gap: 20px;
+        /* Añade espacio entre el botón y el enlace */
+
+        .add-btn {
+            background-color: #02940a;
+            /* Color de fondo del botón */
+            color: white;
+            border: none;
+            padding: 7px 15px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .add-btn i {
+            margin-right: 10px;
+            /* Espacio entre el icono y el texto */
+        }
+    }
+
+
+    .search {
+        flex-grow: 1;
+        /* Permite que la búsqueda ocupe el espacio disponible */
+        display: flex;
+        justify-content: center;
+        /* Centra el input de búsqueda horizontalmente */
+    }
+
+    .search input {
+        max-width: 200px;
+        /* Limita el ancho máximo del campo de búsqueda */
+        width: 100%;
+        /* Asegura que el campo ocupe todo el espacio disponible */
+        padding: 2px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    .logout-button {
+        display: flex;
+        justify-content: flex-end;
+        /* Asegura que el botón esté alineado a la derecha */
+
+        .sidenav-nav-link {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+
+            .sidenav-link-icon {
+                margin-right: 5px;
+            }
+
+            .sidenav-link-text {
+                font-size: 16px;
+            }
+        }
+
+
+    }
+
+
+
+}
