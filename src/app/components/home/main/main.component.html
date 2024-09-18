@@ -9,7 +9,7 @@
     <div class="bodyContainer" [ngClass]="specialStyleClass">
 
         <div class="tableContainer">
-            <p-table [value]="products" [tableStyle]="{'background-color': '#171627'}">
+            <p-table [value]="items" [tableStyle]="{'background-color': '#171627'}">
                 <ng-template pTemplate="header">
                     <tr>
                         <th class="tableStyle">Codigo</th>
@@ -24,7 +24,7 @@
                     <tr>
                         <td class="tableStyle">{{ product.code }}</td>
                         <td class="tableStyle">{{ product.state }}</td>
-                        <td class="tableStyle">{{ product.alimentation }}</td>
+                        <td class="tableStyle">{{ product.food }}</td>
                         <td class="tableStyle">{{ product.edad }}</td>
                         <td class="tableStyle">
                             <div class="more-button">
@@ -40,10 +40,11 @@
         </div>
        
 
-        <div class="mainContent">
+        <!-- <div class="mainContent">
             <ul>
                 <li *ngFor="let item of dataService.items | async">
-                    {{item.data1}}
+                    {{item.code}}
+                    {{item.state}}
                 </li>
             </ul>
             <div class="images">
@@ -52,7 +53,7 @@
                     <p>Image URL: {{image}}</p>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
     <div class="modal">
         <!-- <p-dialog [modal]="true" [(visible)]="visible" >

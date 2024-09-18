@@ -32,17 +32,7 @@ export class MainComponent {
   faEye = faEye;
   isModalOpen = false;
   visible: boolean = false;
-  products = [{
-    code:1,
-    state: 'crecimiento',
-    alimentation: '10-30-10',
-    edad: '1 mes',
-  }, {
-    code:2,
-    state: 'floracion',
-    alimentation: 'urea',
-    edad: '1 mes',
-  }]
+  items: any;
 
   firebaseService = inject(AuthService);
   router = inject(Router);
@@ -55,8 +45,21 @@ export class MainComponent {
   public topbarStyle = '';
 
   ngOnInit() {
-    this.dataService.getElements();
-    this.dataService.getImages();
+    this.fetchItems();
+    // this.dataService.getElements()
+    // this.products = this.dataService.jsonItems
+    // console.log('ALLL ITEMS',this.dataService.jsonItems);
+    // this.dataService.getImages();
+  }
+
+  async fetchItems() {
+    try {
+      const jsonItems = await this.dataService.getElements()
+      this.items = jsonItems;
+      console.log('Datos recibidos:', jsonItems);
+    } catch (error) {
+      console.error('Error al obtener los datos:', error);
+    }
   }
 
   onToggleSideNav(data: SideNavToggle) {
