@@ -33,6 +33,7 @@ export class MainComponent {
   isModalOpen = false;
   visible: boolean = false;
   items: any;
+  elementSelected:any = null;
 
   firebaseService = inject(AuthService);
   router = inject(Router);
@@ -46,6 +47,8 @@ export class MainComponent {
 
   ngOnInit() {
     this.fetchItems();
+    this.firebaseService.showInfo = true;
+    this.firebaseService.pageStyle = 'body-trimmed-aux'
     // this.dataService.getElements()
     // this.products = this.dataService.jsonItems
     // console.log('ALLL ITEMS',this.dataService.jsonItems);
@@ -60,6 +63,11 @@ export class MainComponent {
     } catch (error) {
       console.error('Error al obtener los datos:', error);
     }
+  }
+
+  showInPanel(element:any){
+    console.log(element);
+    this.elementSelected = element;
   }
 
   onToggleSideNav(data: SideNavToggle) {

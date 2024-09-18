@@ -1,11 +1,11 @@
 <!-- <p-button (onClick)="showDialog()" label="Show" /> -->
  <div>
-    <div class="sidebar">
+    <!-- <div class="sidebar">
         <app-sidebar (onToggleSideNav)="onToggleSideNav($event)" (actionSelected)="actionSelected($event)"></app-sidebar>
     </div>
     <div class="topbar" [ngClass]="topbarStyle">
         <app-topbar (actionSelected)="actionSelected($event)"></app-topbar>
-    </div>
+    </div> -->
     <div class="bodyContainer" [ngClass]="specialStyleClass">
 
         <div class="tableContainer">
@@ -20,15 +20,15 @@
                         <!-- <th>Fecha de llegada</th> -->
                     </tr>
                 </ng-template>
-                <ng-template pTemplate="body" let-product>
+                <ng-template pTemplate="body" let-element>
                     <tr>
-                        <td class="tableStyle">{{ product.code }}</td>
-                        <td class="tableStyle">{{ product.state }}</td>
-                        <td class="tableStyle">{{ product.food }}</td>
-                        <td class="tableStyle">{{ product.edad }}</td>
+                        <td class="tableStyle">{{ element.code }}</td>
+                        <td class="tableStyle">{{ element.state }}</td>
+                        <td class="tableStyle">{{ element.food }}</td>
+                        <td class="tableStyle">{{ element.edad }}</td>
                         <td class="tableStyle">
                             <div class="more-button">
-                                <button class=" more-btn" >
+                                <button class="more-btn" (click)="showInPanel(element)">
                                     <i class="sidenav-link-icon"><fa-icon [icon]="faEye" ></fa-icon></i>
                                     <span class="sidenav-link-text">Ver más</span>
                                 </button>
@@ -37,6 +37,20 @@
                     </tr>
                 </ng-template>
             </p-table>
+        </div>
+
+        <div class="rigthPanel">
+            <div *ngIf="elementSelected === null" class="emptyPanel">
+                No existe elemento seleccionado.
+            </div>
+            <div *ngIf="elementSelected !== null" class="dataPanel">
+                {{elementSelected.code}}
+                {{elementSelected.state}}
+                {{elementSelected.food}}
+                {{elementSelected.arrivalDate}}
+                <img class="panelImage" [src]="elementSelected.url" alt="" >
+                    <!-- <p>Image URL: {{image}}</p> -->
+            </div>
         </div>
        
 

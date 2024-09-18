@@ -1,6 +1,11 @@
-<router-outlet />
-<!-- <ul>
-  <li *ngFor="let item of item$ | async; trackBy: trackByFn">
-    {{ item.name }}
-  </li>
-</ul> -->
+<div *ngIf="firebaseService.showInfo ">
+  <div class="sidebar">
+    <app-sidebar (onToggleSideNav)="onToggleSideNav($event)" (actionSelected)="actionSelected($event)"></app-sidebar>
+  </div>
+  <div class="topbar" [ngClass]="topbarStyle">
+    <app-topbar (actionSelected)="actionSelected($event)"></app-topbar>
+  </div>
+</div>
+<div class="sistemContainer" [ngClass]="firebaseService.pageStyle">
+  <router-outlet />
+</div>

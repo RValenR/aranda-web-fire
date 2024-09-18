@@ -10,6 +10,8 @@ export class AuthService {
   auth = inject(Auth)
   firestore = inject(Firestore)
   router = inject(Router)
+  showInfo:any;
+  pageStyle:any;
 
   constructor() { }
 
@@ -28,4 +30,5 @@ export class AuthService {
   logOut(){
     return signOut(getAuth())
   }
+  
 }

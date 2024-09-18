@@ -1,0 +1,21 @@
+.sistemContainer{
+/* width: calc(100% - 14.5625rem); */
+/* height: 100vh; */
+/* margin-left: 14.5625rem; */
+transition: all .3s ease;
+}
+
+.body-trimmed-aux{
+    width: calc(100% - 14.5625rem);
+    margin-left: 14.5625rem;
+}
+
+.body-md-screen-aux{
+    width: calc(100% - 5rem);
+    margin-left: 5rem;
+
+}
+
+.full-screen{
+    width: 100%;
+}
