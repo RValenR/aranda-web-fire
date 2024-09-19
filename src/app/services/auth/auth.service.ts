@@ -10,8 +10,8 @@ export class AuthService {
   auth = inject(Auth)
   firestore = inject(Firestore)
   router = inject(Router)
-  showInfo:any;
-  pageStyle:any;
+  showInfo = true;
+  pageStyle= 'full-screen';
 
   constructor() { }
 

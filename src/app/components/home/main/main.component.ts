@@ -1,8 +1,8 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectorRef, Component, inject } from '@angular/core';
 import { AuthService } from '../../../services/auth/auth.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MainService } from '../../../services/main/main.service';
 import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
@@ -12,7 +12,7 @@ import { SidebarComponent } from '../../commons/sidebar/sidebar.component';
 import { TopbarComponent } from '../../commons/topbar/topbar.component';
 import { TableModule } from 'primeng/table';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faEye } from '@fortawesome/free-solid-svg-icons';
+import { faEye, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 
 interface SideNavToggle {
@@ -30,6 +30,7 @@ interface SideNavToggle {
 })
 export class MainComponent {
   faEye = faEye;
+  faPlus = faPlus;
   isModalOpen = false;
   visible: boolean = false;
   items: any;
@@ -45,14 +46,13 @@ export class MainComponent {
   public specialStyleClass = '';
   public topbarStyle = '';
 
+  constructor(private cdr: ChangeDetectorRef) {}
+  
   ngOnInit() {
     this.fetchItems();
-    this.firebaseService.showInfo = true;
+    // this.firebaseService.showInfo = true;
+    // this.cdr.detectChanges();
     // this.firebaseService.pageStyle = 'body-trimmed-aux'
-    // this.dataService.getElements()
-    // this.products = this.dataService.jsonItems
-    // console.log('ALLL ITEMS',this.dataService.jsonItems);
-    // this.dataService.getImages();
   }
 
   async fetchItems() {
@@ -70,58 +70,22 @@ export class MainComponent {
     this.elementSelected = element;
   }
 
-  onToggleSideNav(data: SideNavToggle) {
-    this.screenWidth = data.screenWidth;
-    this.isSideNavCollapsed = data.collapsed;
-
-
-    if (data.collapsed) {
-      this.firebaseService.pageStyle = 'body-trimmed-aux';
-      this.topbarStyle = 'topbarExpanded';
-    } else if (!data.collapsed) {
-      this.firebaseService.pageStyle = 'body-md-screen-aux';
-      this.topbarStyle = 'topbarUnexpanded';
-    }
-    // console.log(this.specialStyleClass);
-  }
-
-  uploadImage(event: any) {
-    const file = event.target.files[0];
-    console.log(file)
-    this.dataService.uploadFile(file);
-  }
-
-  actionSelected(data: any) {
-    console.log(data);
-    if (data.action === 'addNew') {
-      this.visible = true;
-    }
-    if (data.action === 'logOut') {
-      this.logout()
-    }
-  }
-
-  addPlant() {
+  addNewData() {
     this.visible = true;
-  }
-
-  logout() {
-    this.firebaseService.logOut()
-      .then(() => {
-        this.router.navigate(['/login']);
-      });
-  }
-
-  showDialog() {
-    this.visible = true;
-  }
-
-  closeDialog() {
-    this.visible = false;
   }
 
   onIsVisible(data: any){
-    console.log(data);
-    this.visible = false;
+    this.visible = data.isVisible;
+  }
+
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      this.firebaseService.showInfo = true;
+      this.firebaseService.pageStyle = 'body-trimmed-aux'
+      // this.firebaseService.pageStyle = 'full-screen';
+  
+      // Ahora forzamos la detección de cambios de forma segura
+      this.cdr.detectChanges();
+    }, 0);
   }
 }

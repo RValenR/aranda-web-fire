@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
 import { collection, collectionData, Firestore } from '@angular/fire/firestore';
 import { Router, RouterOutlet } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -25,16 +25,18 @@ export class AppComponent implements OnInit {
   screenWidth = 0;
   public specialStyleClass = '';
   public topbarStyle = '';
-  visible: boolean = false;
   
   firebaseService = inject(AuthService);
   router = inject(Router);
-  showComponents:any;
+  showComponents= this.firebaseService.showInfo;
+
+  constructor(private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
-    this.showComponents = this.firebaseService.showInfo;
-    this.firebaseService.pageStyle = 'body-trimmed-aux'
+    // this.showComponents = this.firebaseService.showInfo;
+    // this.firebaseService.pageStyle = 'body-trimmed-aux'
     console.log('SHOW',this.showComponents)
+    this.cdr.detectChanges();
   }
   
   onToggleSideNav(data: SideNavToggle) {
@@ -54,9 +56,6 @@ export class AppComponent implements OnInit {
 
   actionSelected(data: any) {
     console.log(data);
-    if (data.action === 'addNew') {
-      this.visible = true;
-    }
     if (data.action === 'logOut') {
       this.logout()
       this.showComponents = false;
