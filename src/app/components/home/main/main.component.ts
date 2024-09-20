@@ -75,7 +75,7 @@ export class MainComponent {
   }
 
   onIsVisible(data: any){
-    this.visible = data.isVisible;
+    this.visible = false;
   }
 
   ngAfterViewInit(): void {

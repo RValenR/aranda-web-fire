@@ -2,7 +2,7 @@
 /* width: calc(100% - 14.5625rem); */
 /* height: 100vh; */
 /* margin-left: 14.5625rem; */
-transition: all .3s ease;
+transition: all .2s ease;
 }
 
 .body-trimmed-aux{
@@ -21,5 +21,8 @@ transition: all .3s ease;
 }
 
 .topbar{
-    transition: all .3s ease;
+    transition: all .2s ease;
+    position: fixed;
+    top:0;
+    z-index: 2;
 }

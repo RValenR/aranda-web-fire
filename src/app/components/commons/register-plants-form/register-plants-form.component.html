@@ -1,7 +1,7 @@
 <div class="mainContainer">
 
     <div class="header">
-        <div class="header-title">Añadir nueva planta</div>
+        <div class="header-title">Nueva planta</div>
         <button class="header-btn-close" (click)="closeModal()">
             <i class="fa-times"><fa-icon [icon]="fatimes"></fa-icon></i>
         </button>
@@ -21,25 +21,30 @@
             </div>
             <div class="formData">
                 <div class="form-group">
-                    <label for="code">Código:</label>
-                    <input type="text" formControlName="code" id="data1" name="data1" required>
+                    <!-- <label for="code">Código:</label> -->
+                    <input type="text" formControlName="code" id="code" name="code" placeholder="Código" required>
                 </div>
                 <div class="form-group">
-                    <label for="state">Estado:</label>
-                    <input type="text" formControlName="state" id="state" name="state" required>
+                    <!-- <label for="state">Estado:</label> -->
+                    <input type="text" formControlName="state" id="state" name="state" placeholder="Estado" required>
                 </div>
                 <div class="form-group">
-                    <label for="food">Alimentación:</label>
-                    <input type="text" formControlName="food" id="food" name="food" required>
+                    <!-- <label for="food">Alimentación:</label> -->
+                    <input type="text" formControlName="food" id="food" name="food" placeholder="Alimentación" required>
                 </div>
                 <div class="form-group">
-                    <label for="arrivalDate">Fecha de lleagda:</label>
-                    <input type="date" formControlName="arrivalDate" id="arrivalDate" name="arrivalDate" required>
+                    <!-- <label for="arrivalDate">Fecha de lleagda:</label> -->
+                    <input type="date" formControlName="arrivalDate" id="arrivalDate" name="arrivalDate" placeholder="Fecha de lleagda" required>
                 </div>
                 <div class="actionButtonsClass">
-                    <button type="submit">Enviar</button>
-                    <p-button label="Guardar" (onClick)="closeDialog()" />
-                    <p-button label="Cancelar" (onClick)="closeDialog()" />
+                    <button type="submit" >Guardar</button>
+                    <button class="close-btn" type="reset" (click)="closeModal()">
+                        <!-- <i class="sidenav-link-icon"><fa-icon [icon]="faPlus" ></fa-icon></i> -->
+                        <span>Cancelar</span>
+                    </button>
+
+                    <!-- <p-button label="Guardar" (onClick)="closeDialog()" />
+                    <p-button label="Cancelar" (onClick)="closeDialog()" /> -->
                 </div>
             </div>
             

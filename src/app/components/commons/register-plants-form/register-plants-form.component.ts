@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, inject, Output, ViewChild } from '@angular/core';
 import { MainService } from '../../../services/main/main.service';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -17,6 +17,7 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 })
 export class RegisterPlantsFormComponent {
   @Output() onIsVisible: EventEmitter<any> = new EventEmitter();
+  @ViewChild('arrivalDate') arrivalDateInput!: ElementRef;
   faCamera = faCamera;
   fatimes = faTimes;
   selectedImage: string | ArrayBuffer | null = null;
@@ -36,6 +37,7 @@ export class RegisterPlantsFormComponent {
   async submit() {
     // console.log(this.dataForm.value);
     const urlImage = this.dataService.uploadAllData(this.uploadFile, this.dataForm.value);
+    this. closeModal();
     // console.log(urlImage);
     // const response = await this.dataService.addElement(this.dataForm.value);
     // console.log(response);
@@ -74,4 +76,8 @@ export class RegisterPlantsFormComponent {
     this.visible = false;
     this.onIsVisible.emit({isVisible: this.visible}); 
   }
+
+  // openCalendar() {
+  //   this.arrivalDateInput.nativeElement.showPicker(); // Abre el calendario
+  // }
 }

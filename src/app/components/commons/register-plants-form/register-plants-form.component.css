@@ -1,24 +1,25 @@
 .mainContainer {
-    width: 25.5rem;
-    height: 60vh;
-    /* padding: 1.5rem; */
-    background: #171627;
+    width: 60.5vh;
+    /* height: 60vh; */
+    min-width: 500px;
+    padding: 0.5rem;
+    background: #0e0e16;
     border-radius: 5%;
-    box-shadow: 0.063rem 0 0.525rem 0 #383838;
+    box-shadow: 0.063rem 0 0.525rem 0 #a3a3a3;
     overflow: hidden;
 
     .header {
         display: flex;
         text-align: center;
         width: 100%;
-        padding: 0.538rem 0.838rem 0 0.138rem;
-        background-color: #fff;
+        padding: 0.738rem 0.838rem 0 0.138rem;
+        /* background-color: #fff; */
 
         .header-title {
             margin-left: 1.5rem;
             font-size: 20px;
             font-weight: 500;
-            color: #000000;
+            color: #ffffff;
         }
 
         .header-btn-close {
@@ -31,7 +32,7 @@
             border: none;
 
             .fa-times {
-                color: #000000;
+                color: #ffffff;
                 font-size: 24px;
             }
         }
@@ -40,14 +41,19 @@
     .formContainer {
         display: flex;
         flex-direction: row;
-        justify-content: center;
+        /* justify-content:space-between; */
         align-items: center;
         width: 100%;
-        padding: 0.938rem 0.938rem 0 0.938rem;
+        top: auto;
+
+
+        /* padding: 0.938rem 0.938rem 0 0.938rem; */
         /* text-align: center; */
 
         .photoContainer {
-            margin: 10px;
+            margin-left: 10px;
+            padding: 10px 10px 0px 10px;
+
             .add-new-photo {
                 display: flex;
                 cursor: pointer;
@@ -66,6 +72,7 @@
                     background-color: transparent;
                     font-size: 24px;
                 }
+
                 .preview-image {
                     width: 150px;
                     /* height: 20vh; */
@@ -74,17 +81,89 @@
                 }
             }
         }
+
         .formData {
             display: flex;
+            width: 100vh;
             flex-direction: column;
             justify-content: center;
-            width: 150px;
-            height: 45vh;
-            margin: 10px;
-            color: white;
+            background: #171627;
+            border-radius: 10px;
+            top: auto;
+            /* width: 100%; */
+            /* height: 100%; */
+            /* margin: 10px; */
+            /* color: white; */
+            padding: 15px 10px 0px 10px;
+            margin-right: 25px;
+
+            .form-group {
+                padding: 10px;
+
+                /* color: white; */
+                input {
+                    background-color: #0e0e16;
+                    /* Fondo color plomo */
+                    color: white;
+                    /* Texto dentro del input de color blanco */
+                    border: none;
+                    padding: 8px;
+                    border-radius: 5px
+                }
+
+                input::placeholder {
+                    color: white;
+                    /* Placeholder de color blanco */
+                    opacity: 1;
+                    /* Asegura que el placeholder sea completamente visible */
+                }
+
+                /* Cuando el input está enfocado, ocultar el placeholder */
+                input:focus::placeholder {
+                    opacity: 0;
+                    /* Desaparecer el placeholder cuando el input esté enfocado */
+                }
+
+                /* Cambiar el color del icono del calendario */
+                input[type="date"]::-webkit-calendar-picker-indicator {
+                    background-color: white;
+                    /* Color de fondo del icono */
+                    color: white;
+                    /* Color del icono */
+                    cursor: pointer;
+                    /* Cambiar el cursor */
+                }
+            }
         }
 
 
+    }
+
+    .actionButtonsClass {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 15px;
+        margin-left: 10px;
+
+
+        button {
+            padding: 5px;
+            background: #2c2cfc;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 20px;
+            color: white;
+        }
+
+        button:hover {
+            background: rgb(224, 224, 224);
+            color: #0e0e16;
+        }
+
+        .close-btn {
+            background: #0e0e16;
+        }
     }
 
 }
