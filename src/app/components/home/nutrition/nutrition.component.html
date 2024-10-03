@@ -1,1 +1,36 @@
-<p>nutrition works!</p>
+<div class="nutritionContainer" [ngClass]="specialStyleClass">
+    <div class="buttonAdd">
+        <button class="add-btn" (click)="addNewNutritionData()">
+            <i class="sidenav-link-icon"><fa-icon [icon]="faPlus"></fa-icon></i>
+            <span class="sidenav-link-text">Agregar</span>
+        </button>
+    </div>
+    <div class="panelNutrition">
+        <div class="card">
+            <p-table [value]="items" [tableStyle]="{'background-color': '#171627'}">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th class="tableStyle">Nombre</th>
+                        <th class="tableStyle">Descripcion</th>
+                        <th class="tableStyle">Metodo de aplicacion</th>
+                        <th class="tableStyle">Objetivo</th>
+                        <th class="tableStyle">Acciones</th>
+                        <!-- <th>Fecha de llegada</th> -->
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-element>
+                    <tr>
+                        <td class="tableStyle">{{ element.code }}</td>
+                        <td class="tableStyle">{{ element.state }}</td>
+                        <td class="tableStyle">{{ element.food }}</td>
+                        <td class="tableStyle">{{ element.edad }}</td>
+                        <td class="tableStyle">
+                            
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+
+</div>
